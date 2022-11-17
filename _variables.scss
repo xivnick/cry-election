@@ -1,0 +1,24 @@
+
+$white: #FFFFFF;
+$black: #111111;
+$yellow: #F3BE2E;
+$grey-light: #A0A0A0;
+$grey-dark: #4B4B4B;
+$grey-normal: #757575;
+$grey-deep: #2C2C2C;
+$background:  #F4F4F3;
+
+@function gap-sizing($size, $gap, $number) {
+	@return calc( $size * $number + $gap * $number - $gap );
+}
+
+@font-face{
+	font-family: 'NeoDunggeunmoPro-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: local('NeoDunggeunmoPro-Regular'), url('font/NeoDunggeunmoPro-Regular.woff') format('woff');
+}
+
+@mixin pretendard {
+    font-family: "Pretendard Std Variable", "Pretendard Std", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}

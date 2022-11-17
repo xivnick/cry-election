@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "NeoDunggeunmoPro-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: local("NeoDunggeunmoPro-Regular"), url("font/NeoDunggeunmoPro-Regular.woff") format("woff");
+}
+body {
+  font-family: NeoDunggeunmoPro-Regular;
+}
+
+nav {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 60px;
+  background-color: #111111;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav #logo {
+  height: 30px;
+}
+nav #flag-wrapper {
+  width: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav #flag-wrapper .flag {
+  width: 30px;
+  height: 20px;
+}
+
+#background-wrapper {
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+}
+#background-wrapper #background {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/main-min.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#background-wrapper #background-cover {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+}
+
+main {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 60px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #candidate-wrapper {
+  padding: 50px 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+@media (min-width: 1080px) {
+  main #candidate-wrapper {
+    max-width: 940px;
+  }
+}
+@media (min-width: 720px) and (max-width: 1079px) {
+  main #candidate-wrapper {
+    max-width: 620px;
+  }
+}
+@media (max-width: 719px) {
+  main #candidate-wrapper {
+    max-width: 300px;
+  }
+}
+main #candidate-wrapper .candidate {
+  width: 300px;
+  height: 480px;
+  padding: 30px;
+  border: 2px solid #4B4B4B;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+main #candidate-wrapper .candidate .candidate-number {
+  font-size: 14px;
+  color: #757575;
+}
+main #candidate-wrapper .candidate .candidate-nickname {
+  margin-top: 5px;
+  font-size: 20px;
+  color: white;
+}
+main #candidate-wrapper .candidate .candidate-pfp {
+  width: 170px;
+  height: 170px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+main #candidate-wrapper .candidate .candidate-speech {
+  margin-top: 56px;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+}
+main #candidate-wrapper .candidate .candidate-promise-book-button {
+  margin-top: auto;
+  cursor: pointer;
+  color: #F3BE2E;
+  font-size: 16px;
+  text-decoration-line: underline;
+}
+main #promise-box-layer {
+  position: fixed;
+  left: 0;
+  top: 60px;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #promise-box-layer #promise-box-wrapper {
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box {
+  width: 479px;
+  height: 600px;
+  border-radius: 20px;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-left {
+  background-color: #2C2C2C;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-left .candidate-number {
+  font-size: 14px;
+  color: #757575;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-left .candidate-nickname {
+  margin-top: 5px;
+  font-size: 20px;
+  color: white;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-left .candidate-pfp {
+  width: 170px;
+  height: 170px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-left .candidate-speech {
+  margin-top: 56px;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-left .description {
+  font-family: "Pretendard Std Variable", "Pretendard Std", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: justify;
+  font-weight: 400;
+  color: #A0A0A0;
+  margin-top: 36px;
+  margin-bottom: auto;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right {
+  position: relative;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  font-family: "Pretendard Std Variable", "Pretendard Std", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-wrapper {
+  margin: 58px auto 0;
+  width: 390px;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-wrapper .promise {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-wrapper .promise .contest-chip {
+  width: 70px;
+  height: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #F3BE2E;
+  color: #FFFFFF;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-wrapper .promise .title {
+  margin-top: 5px;
+  text-decoration: underline;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-wrapper .promise .description {
+  font-size: 14px;
+  line-height: 24px;
+  color: #757575;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-description-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 220px;
+  padding: 40px 40px 0;
+  background-color: #F4F4F3;
+}
+main #promise-box-layer #promise-box-wrapper .promise-box#promise-right #promise-description-wrapper .description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: justify;
+  color: #4B4B4B;
+}
+
+/*# sourceMappingURL=style.css.map */

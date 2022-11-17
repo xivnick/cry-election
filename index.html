@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Crazy rich yellows Election</title>
+	<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-std.css" />
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<nav>
+		<a href="https://www.crazyrichyellows.com"><img id="logo" src="img/logo.png"/></a>
+		<div id="flag-wrapper" style="visibility: hidden;">
+			<img id="flag-kor" class="flag" src="img/flag-kor.png"/>
+			<img id="flag-eng" class="flag" src="img/flag-eng.png"/>
+		</div>
+	</nav>
+	<div id="background-wrapper">
+		<div id="background"></div>
+		<div id="background-cover"></div>
+	</div>
+	<main id="app">
+		<div id="candidate-wrapper">
+			<div class="candidate"
+				 v-for="(candidate, idx) in candidates"
+			>
+				<span class="candidate-number">yellows #{{candidate.number}}</span>
+				<span class="candidate-nickname">{{candidate.nickname}}</span>
+				<img class="candidate-pfp" 
+					 :src="'pfps/'+candidate.number+'.png'"
+				/>
+				<p class="candidate-speech">"{{candidate.speech}}"</p>
+				<span class="candidate-promise-book-button" @click="setPromise(idx)">promise book</span>
+			</div>
+		</div>
+		<div id="promise-box-layer"
+			 v-if="promiseIdx !== null"
+		>
+			<div id="promise-box-wrapper">
+				<img src="img/arrow-left.png"
+					 :style="promiseIdx > 0?'':'visibility: hidden;'"
+					 @click="editPromise(-1)"
+				/>
+				<div id="promise-left" class="promise-box">
+					<span class="candidate-number">yellows #{{candidates[promiseIdx].number}}</span>
+					<span class="candidate-nickname">{{candidates[promiseIdx].nickname}}</span>
+					<img class="candidate-pfp" 
+						 :src="'pfps/'+candidates[promiseIdx].number+'.png'"
+					/>
+					<p class="candidate-speech">"{{candidates[promiseIdx].speech}}"</p>
+					<p class="description" v-html="candidates[promiseIdx].cDescription"></p>
+				</div>
+				<div id="promise-right" class="promise-box">
+					<img id="close-button" src="img/button-x.png" @click="setPromise(null)"/>
+					<div id="promise-wrapper">
+						<div class="promise"
+						 v-for="(promise, idx) in candidates[promiseIdx].promises"
+						>
+							<div class="contest-chip">Contest {{idx+1}}</div>
+							<span class="title">"{{promise.title}}"</span>
+							<span class="description">{{promise.description}}</span>
+						</div>
+					</div>
+					<div id="promise-description-wrapper">
+						<p class="description" v-html="candidates[promiseIdx].pDescription"></p>
+					</div>
+				</div>
+				<img src="img/arrow-right.png"
+					 :style="promiseIdx < candidates.length - 1 ?'':'visibility: hidden;'"
+					 @click="editPromise(1)"
+				/>
+			</div>
+		</div>
+	</main>
+
+	<script type="text/javascript">
+		const { createApp } = Vue
+
+		createApp({
+			data: () => ({
+				promiseIdx: null,
+				candidates: [
+					{
+						nickname: 'Mojo Jojo', 
+						number: 2543, 
+						speech: 'Make Internet Great Again',
+						cDescription: "We will be focusing on 3Fs to make CRY a sustainable global bluechip project which are 'Fun, Floor price, and Fairness.' Let's make a fun community with higher floor price where everyone is reflected!",
+						pDescription: '1. Constitution to prevent successors from misusing the budget<br/>2. Regular zoom meetings between CRY holders, CRY team, and the Yellow Man<br/>3. Buy floor price CRYs and give them as giveaways to holders',
+						promises: [
+							{title: 'Make New Friends', description: 'Use hashtag to make new cry friends.'},
+							{title: 'Identity Making Contest', description: 'Make up a story about your CRY.'},
+							{title: 'Meme Making Contest', description: 'Make memes related to CRY.'},
+						],
+					},
+					{
+						nickname: 'Dave_CryptoFun', 
+						number: 1088, 
+						speech: 'Everything Is Gonna Be Yellow!',
+						cDescription: 'Dave CryptoFun. A Crypto Lover, Crazy about NFTs. Working on many projects as a Mod and CM.<br/>Hellow Yellow Party : Introduce the Yellow Land to global users and Yellowrize the real and meta-verse world',
+						pDescription: 'Dave’s Hi-Five Pledges to make CRY great, and they are:<br/>1. Yellow Citizens<br/>2. Yellow To Earn<br/>3. Yellow Money<br/>4. Yellow Pass<br/>5. Yellow-Promises',
+						promises: [
+							{title: 'Naming Yellow Citizens', description: 'Making Their Own Names of the Yellow Land Contest'},
+							{title: 'Yellow To Earn', description: 'The King of Savings & Yellow PowerBall Contest'},
+							{title: 'P.R.King', description: 'The Craziest Idea of Promoting Our Nation Contest'},
+						],
+					},
+					{
+						nickname: 'pudgy yellows', 
+						number: 1061, 
+						speech: 'It’s the floor price, stupid!',
+						cDescription: 'Oink! Oink! It’s Pump Party',
+						pDescription: '1. Will issue “Piggy Coin” and airdrop it to Yellows holders<br/>2. Will appoint Do Kwon as the vice president<br/>3. Will gift a yellow Porsche Boxter to 5 holders',
+						promises: [
+							{title: 'Oink Oink drawing contest', description: 'Whoever draws the cutest pig wins the contest'},
+							{title: 'MaxBidding contest', description: 'Who buys a CRY PFP at the max price wins'},
+							{title: 'Find SBF contest', description: 'Whoever locates SBF wins the contest'},
+						],
+					},
+				]
+			}),
+			methods: {
+				setPromise(idx) {
+					this.promiseIdx = idx;
+				},
+				editPromise(delta) {
+					this.promiseIdx += delta;
+				}
+			}
+		}).mount('#app')
+	</script>
+</body>
+</html>
